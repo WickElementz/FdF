@@ -1,0 +1,1 @@
+gcc -o fdf ./srcs/*.c ./includes/libft/libft.a ./includes/GNl/get_next_line.c

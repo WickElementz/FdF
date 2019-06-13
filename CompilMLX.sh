@@ -1,0 +1,1 @@
+gcc -o fdf ./srcs/main.c  -I ./includes -I /libft -I libmlx.a -L ./includes/minilibx_macOS -lmlx -framework OpenGL -framework AppKit
