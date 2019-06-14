@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/13 14:48:03 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/06/13 18:12:36 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/06/14 18:50:45 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,61 +34,58 @@ char		*del_number(char *str)
 	str2 = malloc(sizeof(char) * (j + 1));
 	j = 0;
 	while (str[i])
-	{
 		str2[j++] = str[i++];
-	}
 	str2[j] = '\0';
+	free(str);
 	return (str2);
 }
 
-t_env		*index_number(t_lst *lst, t_env *index, int verif, int number)
+t_env		*index_number(t_lst *lst, t_env *env, int verif, int number)
 {
-	int x;
-	int y;
-	int i;
+	int		x;
+	int		y;
+	int		i;
+	t_index	*tmp;
+	t_lst	*beg;
 
 	y = 0;
-	while (lst->next)
+	beg = lst;
+	tmp = INDEX;
+	while (beg->next && !(x = 0))
 	{
-		x = 0;
 		i = verif;
 		while (i-- > 0)
 		{
-			number = (ft_atoi(lst->s));
-			lst->s = del_number(lst->s);
-			index->num = number;
-			index->co_x = x++;
-			index->co_y = y;
-			dprintf(1, "Relief: %d  ||  Coord x: %d  ||  Coord y: %d\n", index->num, index->co_x, index->co_y);
+			number = (ft_atoi(beg->s));
+			beg->s = del_number(beg->s);
+			tmp->num = number;
+			tmp->co_x = x++;
+			tmp->co_y = y;
+			tmp->next = init_index();
+			tmp = tmp->next;
 		}
 		y++;
-		index->next = (t_env *)malloc(sizeof(t_env));
-		index = index->next;
-		lst = lst->next;
+		beg = beg->next;
 	}
-	return (index);
+	return (env);
 }
 
-int			check_valide_file(t_lst *lst, int verif, int i, int nbr)
+int			check_valid_file(t_lst *lst, int verif, int i, int nbr)
 {
 	while (lst->next)
 	{
 		i = 0;
-		nbr = 1;
-		while (lst->s[i])
+		nbr = 0;
+		while ((lst->s[i] && lst->s[i] >= '0' && lst->s[i] <= '9')
+				|| lst->s[i] == ' ' || lst->s[i] == '-' || lst->s[i] == '+')
 		{
-			if (lst->s[i] == ' ' || lst->s[i] == '-' || lst->s[i] == '+')
-			{
-				while (lst->s[i] == ' ')
-					i++;
-				if (lst->s[i] && lst->s[i] != '-' && lst->s[i] != '+')
-					nbr++;
-			}
-			else if (lst->s[i] < '0' || lst->s[i] > '9')
-				return (0);
-			else
+			while (lst->s[i] && lst->s[i] != ' ')
 				i++;
+			while (lst->s[i] && lst->s[i] == ' ')
+				i++;
+			nbr++;
 		}
+	//	dprintf(1, "Verif: %d || nbr: %d\n", verif, nbr);
 		if (verif == 0)
 			verif = nbr;
 		if (verif != nbr)
@@ -98,17 +95,19 @@ int			check_valide_file(t_lst *lst, int verif, int i, int nbr)
 	return (verif);
 }
 
-int			check(t_lst *lst)
+t_env			*check(t_lst *lst, int verif, t_env *env)
 {
-	t_env	*env;
-	int		verif;
-
-	verif = 0;
-	if (!(env = (t_env *)malloc(sizeof(t_env))))
-		return (0);
-	verif = check_valide_file(lst, 0, 0, 1);
-	if (verif == 0)
-		return (0);
+	if (!(verif = check_valid_file(lst, verif, 101, 101)))
+	{
+		dprintf(1, "Invalid File\n");
+		return (NULL);
+	}
+	dprintf(1, "Valid File\n");
 	env = index_number(lst, env, verif, 0);
-	return (1);
+	while (INDEX->next)
+	{
+		dprintf(1, "Relief: %d || Coord x: %d || Coord y: %d\n", INDEX->num, INDEX->co_x, INDEX->co_y);
+		INDEX = INDEX->next;
+	}
+	return (env);
 }
