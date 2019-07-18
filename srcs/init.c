@@ -6,12 +6,16 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/14 16:35:56 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/06/14 18:50:46 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/18 18:18:30 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/FdF.h"
+
+/*
+** Fichier servant à initialiser les listes chainées / structures contenu dans le FdF.h
+*/
 
 t_lst   *init_lst(void)
 {
@@ -42,6 +46,8 @@ t_env   *init_env(void)
 
     if (!(env = malloc(sizeof(t_env))))
         return (NULL);
+    env->x1 = 0;
+	env->y1 = 0;
     INDEX = init_index();
     return (env);
 }

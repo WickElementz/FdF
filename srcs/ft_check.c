@@ -6,12 +6,16 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/13 14:48:03 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/06/14 18:50:45 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/18 18:17:49 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/FdF.h"
+
+/*
+** Fonction utilisée pour supprimer le premier nombre de chaque lignes
+*/
 
 char		*del_number(char *str)
 {
@@ -39,6 +43,10 @@ char		*del_number(char *str)
 	free(str);
 	return (str2);
 }
+
+/*
+** Utilisé pour index chacuns de nos nombres
+*/
 
 t_env		*index_number(t_lst *lst, t_env *env, int verif, int number)
 {
@@ -70,6 +78,11 @@ t_env		*index_number(t_lst *lst, t_env *env, int verif, int number)
 	return (env);
 }
 
+/*
+** Verifie si le fichier est valide, par valide on entend:
+** Fichier contenant nombre negatifs / Positifs compris entre 0 et x
+*/
+
 int			check_valid_file(t_lst *lst, int verif, int i, int nbr)
 {
 	while (lst->next)
@@ -85,7 +98,6 @@ int			check_valid_file(t_lst *lst, int verif, int i, int nbr)
 				i++;
 			nbr++;
 		}
-	//	dprintf(1, "Verif: %d || nbr: %d\n", verif, nbr);
 		if (verif == 0)
 			verif = nbr;
 		if (verif != nbr)
@@ -94,6 +106,10 @@ int			check_valid_file(t_lst *lst, int verif, int i, int nbr)
 	}
 	return (verif);
 }
+
+/*
+** Fonction Globale verifiant la validité de notre fichier 
+*/
 
 t_env			*check(t_lst *lst, int verif, t_env *env)
 {
@@ -104,10 +120,5 @@ t_env			*check(t_lst *lst, int verif, t_env *env)
 	}
 	dprintf(1, "Valid File\n");
 	env = index_number(lst, env, verif, 0);
-	while (INDEX->next)
-	{
-		dprintf(1, "Relief: %d || Coord x: %d || Coord y: %d\n", INDEX->num, INDEX->co_x, INDEX->co_y);
-		INDEX = INDEX->next;
-	}
 	return (env);
 }

@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/12 13:35:57 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/06/14 18:59:21 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/18 18:17:47 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,13 +21,38 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
+/*
+** Definition d'un chemin plus direct a notre liste chainée dans notre structure
+*/
+
 # define INDEX env->index
+
+/*
+** Definition des codes couleurs pour Bresenham
+*/
+
+# define TEAL 0x25FDE9
+# define ROSE 0xFD6C9E
+# define RED 0xFF0000
+# define YELLOW 0xFFFF00
+# define WHITE 0xFFFFFF
+# define BLUE 0x0000FF
+# define ORANGE 0xED7F10
+# define GREEN 0x00FF00
+
+/*
+** Liste chainée utilisée pour stocker notre fichier
+*/
 
 typedef struct      s_lst
 {
 	struct s_lst    *next;
 	char            *s;
 }                    t_lst;
+
+/*
+** Liste chainée utilisée pour indexer notre fichier
+*/
 
 typedef struct      s_index
 {
@@ -37,12 +62,22 @@ typedef struct      s_index
 	struct s_index  *next;
 }                   t_index;
 
+/*
+** Variable d'environnement utilisée pour stocker toutes les valeurs importantes
+** ainsi que les ptr sur void utilisées par la MLX
+*/
+
 typedef struct      s_env
 {
 	t_index			*index;
-//	void            *ptr;
-//	void            *win;
-
+	int				x1;
+	int				y1;
+	float			e;
+	float			e1;
+	float			e2;
+	void            *mlx_ptr;
+	void            *win_ptr;
+	void			*img;
 }                   t_env;
 
 t_env				*check(t_lst *list, int verif, t_env *env);
@@ -52,6 +87,15 @@ t_index				*free_index(t_index	*index);
 t_index				*init_index(void);
 t_env				*init_env(void);
 t_lst				*init_lst(void);
+void				bresenham_1(int x, int y, t_env *env);
+void				bresenham_2(int x, int y, t_env *env);
+void				bresenham_3(int x, int y, t_env *env);
+void				bresenham_4(int x, int y, t_env *env);
+void				bresenham_5(int x, int y, t_env *env);
+void				bresenham_6(int x, int y, t_env *env);
+void				bresenham_7(int x, int y, t_env *env);
+void				bresenham_8(int x, int y, t_env *env);
+void				mlxinit(t_env *env);
 void 				error(void);
 
 #endif
