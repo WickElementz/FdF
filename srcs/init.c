@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/14 16:35:56 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/18 18:18:30 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/23 16:27:17 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,6 +48,10 @@ t_env   *init_env(void)
         return (NULL);
     env->x1 = 0;
 	env->y1 = 0;
+    env->number_x = 0;
+    env->number_y = 0;
+    env->size_x = 1800;
+	env->size_y = 1200;
     INDEX = init_index();
     return (env);
 }

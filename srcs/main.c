@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/12 11:35:50 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/18 18:19:24 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/23 16:26:51 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,7 +34,7 @@ t_lst   *fill(t_lst *lst, int fd)
 }
 
 int     main(int ac, char **av)
-{
+{ 
 	t_lst   *lst;
 	int     fd;
 	t_env   *env;
@@ -51,7 +51,8 @@ int     main(int ac, char **av)
 	env = init_env();
 	lst = init_lst();
 	lst = fill(lst, fd);
-	env = check(lst, 0, env);
+	env = check(lst, env);
+	dprintf(1, "COUCOU %d COUCOU %d\n", env->number_x, env->number_y);
 	env->mlx_ptr = mlx_init();
 	mlxinit(env);
 	free_list(lst);

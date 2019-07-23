@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/05/07 13:37:27 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/18 18:17:48 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/23 16:22:24 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,6 +25,7 @@ void error(void)
 /*
 ** Free notre liste chainée contenant notre fichier
 */
+
 t_index	*free_index(t_index	*index)
 {
 	if (index)

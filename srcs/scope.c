@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/17 15:59:26 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/18 18:17:50 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/23 16:22:12 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -52,6 +52,8 @@ void check_bresenham(int x2, int y2, t_env *env)
 		else if (x < y)
 			bresenham_8(x2, y2, env);
 	}
+	else
+		bresenham_line(x2, y2, env);
 }
 
 /*
@@ -60,7 +62,7 @@ void check_bresenham(int x2, int y2, t_env *env)
 
 int key_hook(int key, t_env *env)
 {
-	if (key == 53)
+	if (key == ECHAP)
 		exit(1);
 	return (0);
 }
@@ -72,12 +74,12 @@ int key_hook(int key, t_env *env)
 
 int mouse_hook(int button, int x, int y, t_env *env)
 {
-	if (button == 1)
+	if (button == LEFT_CLICK)
 	{
 		env->x1 = x;
 		env->y1 = y;
 	}
-	if (button == 2)
+	if (button == RIGHT_CLICK)
 		check_bresenham(x, y, env);
 	return (0);
 }
@@ -89,8 +91,8 @@ int mouse_hook(int button, int x, int y, t_env *env)
 
 void mlxinit(t_env *env)
 {
-	env->win_ptr = mlx_new_window(env->mlx_ptr, 1200, 800, "this is a title");
-	env->img = mlx_new_image(env->mlx_ptr, 1200, 800);
+	env->win_ptr = mlx_new_window(env->mlx_ptr, env->size_x, env->size_y, "this is a title");
+	env->img = mlx_new_image(env->mlx_ptr, env->size_x, env->size_y);
 	mlx_hook(env->win_ptr, 2, 1, &key_hook, env);
 	mlx_mouse_hook(env->win_ptr, &mouse_hook, env);
 	mlx_loop(env->mlx_ptr);

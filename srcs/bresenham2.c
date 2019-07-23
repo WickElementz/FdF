@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/18 15:44:26 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/18 18:17:51 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/23 16:22:13 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,9 +19,12 @@
 ** Bresenham 6 = Bleu
 ** Bresenham 7 = Orange
 ** Bresenham 8 = Vert
+** Rajout de Bresenham_line qui permet de tracer les lignes droites 
+** ( qui ne sont pas prises en compte par Bresenham)
+** Bresenham Line = Vert Foncé
 */
 
-void	bresenham_5(int x2, int y2, t_env *env)
+void bresenham_5(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
@@ -31,7 +34,7 @@ void	bresenham_5(int x2, int y2, t_env *env)
 	x = env->x1;
 	y = env->y1;
 	dx = x2 - env->x1;
-	dy = y2 - env->y1;  
+	dy = y2 - env->y1;
 	env->e = 0.0;
 	env->e1 = (float)dx / (float)dy;
 	env->e2 = 1.0;
@@ -48,7 +51,7 @@ void	bresenham_5(int x2, int y2, t_env *env)
 	}
 }
 
-void	bresenham_6(int x2, int y2, t_env *env)
+void bresenham_6(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
@@ -71,11 +74,12 @@ void	bresenham_6(int x2, int y2, t_env *env)
 			y++;
 			env->e = env->e + env->e2;
 		}
-		x--;;
+		x--;
+		;
 	}
 }
 
-void	bresenham_7(int x2, int y2, t_env *env)
+void bresenham_7(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
@@ -102,7 +106,7 @@ void	bresenham_7(int x2, int y2, t_env *env)
 	}
 }
 
-void	bresenham_8(int x2, int y2, t_env *env)
+void bresenham_8(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
@@ -126,5 +130,28 @@ void	bresenham_8(int x2, int y2, t_env *env)
 			env->e = env->e + env->e2;
 		}
 		y--;
+	}
+}
+
+void bresenham_line(int x2, int y2, t_env *env)
+{
+	int x;
+	int y;
+
+	x = env->x1;
+	y = env->y1;
+	if (y == y2)
+	{
+		while (x < x2)
+			mlx_pixel_put(env->mlx_ptr, env->win_ptr, x++, y, DARKGREEN);
+		while (x > x2)
+			mlx_pixel_put(env->mlx_ptr, env->win_ptr, x--, y, DARKGREEN);
+	}
+	else if (x == x2)
+	{
+		while (y < y2)
+			mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y++, DARKGREEN);
+		while (y > y2)
+			mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y--, DARKGREEN);
 	}
 }

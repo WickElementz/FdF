@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/17 15:06:36 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/18 18:17:51 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/19 16:13:10 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,14 +14,14 @@
 #include "../includes/FdF.h"
 
 /*
-** Bresenham pour la partie droite du tracé par rapport au point de départ
+** Bresenham pour la pa	rtie droite du tracé par rapport au point de départ
 ** Bresenham 1 = Turquoise
 ** Bresenham 2 = Rose
 ** Bresenham 3 = Rouge
 ** Bresenham 4 = Jaune
 */
 
-void	bresenham_1(int x2, int y2, t_env *env)
+void bresenham_1(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
@@ -48,7 +48,7 @@ void	bresenham_1(int x2, int y2, t_env *env)
 	}
 }
 
-void	bresenham_2(int x2, int y2, t_env *env)
+void bresenham_2(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
@@ -62,7 +62,7 @@ void	bresenham_2(int x2, int y2, t_env *env)
 	env->e = 0.0;
 	env->e1 = (float)dy / (float)dx;
 	env->e2 = 1.0;
-    while (x < x2)
+	while (x < x2)
 	{
 		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, ROSE);
 		env->e = env->e + env->e1;
@@ -71,11 +71,12 @@ void	bresenham_2(int x2, int y2, t_env *env)
 			y--;
 			env->e = env->e + env->e2;
 		}
-		x++;;
+		x++;
+		;
 	}
 }
 
-void	bresenham_3(int x2, int y2, t_env *env)
+void bresenham_3(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
@@ -102,7 +103,7 @@ void	bresenham_3(int x2, int y2, t_env *env)
 	}
 }
 
-void	bresenham_4(int x2, int y2, t_env *env)
+void bresenham_4(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
