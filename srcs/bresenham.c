@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/17 15:06:36 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/19 16:13:10 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/21 13:24:03 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,7 +14,7 @@
 #include "../includes/FdF.h"
 
 /*
-** Bresenham pour la pa	rtie droite du tracé par rapport au point de départ
+** Bresenham pour la partie droite du tracé par rapport au point de départ
 ** Bresenham 1 = Turquoise
 ** Bresenham 2 = Rose
 ** Bresenham 3 = Rouge

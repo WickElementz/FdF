@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/13 14:48:03 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/23 16:36:01 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/27 16:35:23 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -63,7 +63,7 @@ t_env *index_number(t_lst *lst, t_env *env, int number)
 		{
 			number = (ft_atoi(beg->s));
 			beg->s = del_number(beg->s);
-			tmp->num = number;
+			tmp->z = number;
 			tmp->co_x = x++;
 			tmp->co_y = env->number_y;
 			tmp->next = init_index();
@@ -104,7 +104,7 @@ int check_valid_file(t_lst *lst, t_env *env, int i, int nbr)
 }
 
 /*
-** Fonction Globale env->number_xiant la validité de notre fichier 
+** Fonction Globale env->number_x verifiant la validité de notre fichier 
 */
 
 t_env*check(t_lst *lst, t_env *env)

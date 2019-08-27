@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/17 15:59:26 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/23 16:22:12 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/21 16:06:21 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,7 +57,7 @@ void check_bresenham(int x2, int y2, t_env *env)
 }
 
 /*
-** Keycode 53 = echap, donc, echap = close programme
+** Keycode echap, donc, echap = close programme
  */
 
 int key_hook(int key, t_env *env)
@@ -95,5 +95,8 @@ void mlxinit(t_env *env)
 	env->img = mlx_new_image(env->mlx_ptr, env->size_x, env->size_y);
 	mlx_hook(env->win_ptr, 2, 1, &key_hook, env);
 	mlx_mouse_hook(env->win_ptr, &mouse_hook, env);
+	find_zoom(env);
+	trace(env);
 	mlx_loop(env->mlx_ptr);
+
 }

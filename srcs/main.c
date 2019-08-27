@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/12 11:35:50 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/23 16:26:51 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/24 15:39:02 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -52,7 +52,6 @@ int     main(int ac, char **av)
 	lst = init_lst();
 	lst = fill(lst, fd);
 	env = check(lst, env);
-	dprintf(1, "COUCOU %d COUCOU %d\n", env->number_x, env->number_y);
 	env->mlx_ptr = mlx_init();
 	mlxinit(env);
 	free_list(lst);

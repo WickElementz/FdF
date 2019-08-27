@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/12 13:35:57 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/23 16:40:09 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/27 16:35:22 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,7 +67,7 @@ typedef struct      s_lst
 
 typedef struct      s_index
 {
-	int             num;
+	int             z;
 	int             co_x;
 	int             co_y;
 	struct s_index  *next;
@@ -118,7 +118,10 @@ void				bresenham_6(int x, int y, t_env *env);
 void				bresenham_7(int x, int y, t_env *env);
 void				bresenham_8(int x, int y, t_env *env);
 void				bresenham_line(int x, int y, t_env *env);
-void				test(t_env *env, t_lst *lst);
+void				check_bresenham(int x2, int y2, t_env *env);
+void				trace(t_env *env);
+void				choose_trade(t_env *env, t_index *index, t_index *up);
+void				find_zoom(t_env *env);
 void				mlxinit(t_env *env);
 void 				error(void);
 
