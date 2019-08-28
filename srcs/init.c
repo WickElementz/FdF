@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/14 16:35:56 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/27 16:35:21 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/28 16:46:47 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,8 +34,8 @@ t_index *init_index(void)
     if (!(index = (t_index *)malloc(sizeof(t_index))))
         return (NULL);
     index->z = 0;
-    index->co_x = 0;
-    index->co_y = 0;
+    index->x = 0;
+    index->y = 0;
     index->next = NULL;
     return (index);
 }

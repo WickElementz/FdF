@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/17 15:06:36 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/21 13:24:03 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/28 16:46:45 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,10 +15,6 @@
 
 /*
 ** Bresenham pour la partie droite du tracé par rapport au point de départ
-** Bresenham 1 = Turquoise
-** Bresenham 2 = Rose
-** Bresenham 3 = Rouge
-** Bresenham 4 = Jaune
 */
 
 void bresenham_1(int x2, int y2, t_env *env)
@@ -37,9 +33,9 @@ void bresenham_1(int x2, int y2, t_env *env)
 	env->e2 = 1.0;
 	while (y > y2)
 	{
-		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, TEAL);
+		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, WHITE);
 		env->e = env->e + env->e1;
-		if (env->e < 0.5)
+		if (env->e < -0.5)
 		{
 			x++;
 			env->e = env->e + env->e2;
@@ -64,9 +60,9 @@ void bresenham_2(int x2, int y2, t_env *env)
 	env->e2 = 1.0;
 	while (x < x2)
 	{
-		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, ROSE);
+		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, BLUE);
 		env->e = env->e + env->e1;
-		if (env->e < 0.5)
+		if (env->e < -0.5)
 		{
 			y--;
 			env->e = env->e + env->e2;
@@ -92,7 +88,7 @@ void bresenham_3(int x2, int y2, t_env *env)
 	env->e2 = -1.0;
 	while (x < x2)
 	{
-		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, RED);
+		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, ORANGE);
 		env->e = env->e + env->e1;
 		if (env->e > 0.5)
 		{
@@ -119,7 +115,7 @@ void bresenham_4(int x2, int y2, t_env *env)
 	env->e2 = -1.0;
 	while (y < y2)
 	{
-		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, YELLOW);
+		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, GREEN);
 		env->e = env->e + env->e1;
 		if (env->e > 0.5)
 		{

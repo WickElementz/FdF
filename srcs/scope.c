@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/17 15:59:26 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/21 16:06:21 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/28 16:46:46 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -81,6 +81,10 @@ int mouse_hook(int button, int x, int y, t_env *env)
 	}
 	if (button == RIGHT_CLICK)
 		check_bresenham(x, y, env);
+/*	if (button == SCROLL_UP)
+		env->zoom *= 1.2;
+	if (button == SCROLL_DOWN)
+		env->zoom /= 1.2;*/
 	return (0);
 }
 

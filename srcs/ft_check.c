@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/13 14:48:03 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/27 16:35:23 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/28 16:46:47 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -64,8 +64,8 @@ t_env *index_number(t_lst *lst, t_env *env, int number)
 			number = (ft_atoi(beg->s));
 			beg->s = del_number(beg->s);
 			tmp->z = number;
-			tmp->co_x = x++;
-			tmp->co_y = env->number_y;
+			tmp->x = x++;
+			tmp->y = env->number_y;
 			tmp->next = init_index();
 			tmp = tmp->next;
 		}

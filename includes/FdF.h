@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/12 13:35:57 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/27 16:35:22 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/08/28 16:46:49 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,6 +50,8 @@
 # define ECHAP 53
 # define LEFT_CLICK 1
 # define RIGHT_CLICK 2
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
 
 /*
 ** Liste chainée utilisée pour stocker notre fichier
@@ -68,8 +70,8 @@ typedef struct      s_lst
 typedef struct      s_index
 {
 	int             z;
-	int             co_x;
-	int             co_y;
+	int             x;
+	int             y;
 	struct s_index  *next;
 }                   t_index;
 
