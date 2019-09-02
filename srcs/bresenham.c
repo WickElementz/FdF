@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/17 15:06:36 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/28 16:46:45 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/09/02 18:34:01 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,7 @@
 ** Bresenham pour la partie droite du tracé par rapport au point de départ
 */
 
-void bresenham_1(int x2, int y2, t_env *env)
+void	bresenham_1(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
@@ -33,7 +33,7 @@ void bresenham_1(int x2, int y2, t_env *env)
 	env->e2 = 1.0;
 	while (y > y2)
 	{
-		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, WHITE);
+		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, env->color);
 		env->e = env->e + env->e1;
 		if (env->e < -0.5)
 		{
@@ -44,7 +44,7 @@ void bresenham_1(int x2, int y2, t_env *env)
 	}
 }
 
-void bresenham_2(int x2, int y2, t_env *env)
+void	bresenham_2(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
@@ -60,7 +60,7 @@ void bresenham_2(int x2, int y2, t_env *env)
 	env->e2 = 1.0;
 	while (x < x2)
 	{
-		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, BLUE);
+		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, env->color);
 		env->e = env->e + env->e1;
 		if (env->e < -0.5)
 		{
@@ -72,7 +72,7 @@ void bresenham_2(int x2, int y2, t_env *env)
 	}
 }
 
-void bresenham_3(int x2, int y2, t_env *env)
+void	bresenham_3(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
@@ -88,7 +88,7 @@ void bresenham_3(int x2, int y2, t_env *env)
 	env->e2 = -1.0;
 	while (x < x2)
 	{
-		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, ORANGE);
+		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, env->color);
 		env->e = env->e + env->e1;
 		if (env->e > 0.5)
 		{
@@ -99,7 +99,7 @@ void bresenham_3(int x2, int y2, t_env *env)
 	}
 }
 
-void bresenham_4(int x2, int y2, t_env *env)
+void	bresenham_4(int x2, int y2, t_env *env)
 {
 	int x;
 	int y;
@@ -115,7 +115,7 @@ void bresenham_4(int x2, int y2, t_env *env)
 	env->e2 = -1.0;
 	while (y < y2)
 	{
-		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, GREEN);
+		mlx_pixel_put(env->mlx_ptr, env->win_ptr, x, y, env->color);
 		env->e = env->e + env->e1;
 		if (env->e > 0.5)
 		{

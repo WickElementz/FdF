@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/12 11:35:50 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/24 15:39:02 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/09/02 18:34:00 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,14 +14,14 @@
 #include "../includes/FdF.h"
 
 /*
-** Fonction remplissant notre liste chainée "lst" par le contenu du fichier, ligne par ligne
+** Fonction remplissant notre liste chainée "lst" par le contenu du fichier
 */
 
-t_lst   *fill(t_lst *lst, int fd)
+t_lst	*fill(t_lst *lst, int fd)
 {
-	int     ret;
-	t_lst   *tmp;
-	char    *line;
+	int		ret;
+	t_lst	*tmp;
+	char	*line;
 
 	tmp = lst;
 	while ((ret = get_next_line(fd, &line) > 0))
@@ -33,11 +33,11 @@ t_lst   *fill(t_lst *lst, int fd)
 	return (tmp);
 }
 
-int     main(int ac, char **av)
-{ 
-	t_lst   *lst;
-	int     fd;
-	t_env   *env;
+int		main(int ac, char **av)
+{
+	t_lst	*lst;
+	int		fd;
+	t_env	*env;
 
 	if (ac != 2)
 	{
@@ -56,5 +56,5 @@ int     main(int ac, char **av)
 	mlxinit(env);
 	free_list(lst);
 	free_env(env);
-	return(0);
+	return (0);
 }

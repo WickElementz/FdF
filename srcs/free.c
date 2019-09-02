@@ -6,7 +6,7 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/05/07 13:37:27 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/23 16:22:24 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/09/02 18:33:59 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,23 +17,24 @@
 ** Message d'erreur
 */
 
-void error(void)
+void		error(void)
 {
-    ft_putstr("error\n");
-    exit(1);
+	ft_putstr("error\n");
+	exit(1);
 }
+
 /*
 ** Free notre liste chainée contenant notre fichier
 */
 
-t_index	*free_index(t_index	*index)
+t_index		*free_index(t_index *index)
 {
 	if (index)
 		free_index(index->next);
 	if (index)
 	{
 		index->next = NULL;
-		free(index);		
+		free(index);
 	}
 	return (NULL);
 }
@@ -42,7 +43,7 @@ t_index	*free_index(t_index	*index)
 ** Free notre liste chainée contenant notre index du fichier
 */
 
-t_env	*free_env(t_env *env)
+t_env		*free_env(t_env *env)
 {
 	if (INDEX)
 		free_index(INDEX);
@@ -54,7 +55,7 @@ t_env	*free_env(t_env *env)
 ** Free notre variable d'environnement
 */
 
-t_lst	*free_list(t_lst *list)
+t_lst		*free_list(t_lst *list)
 {
 	if (list->next)
 		free_list(list->next);
