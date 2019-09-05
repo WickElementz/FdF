@@ -6,22 +6,12 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/05/07 13:37:27 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/09/02 18:33:59 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/09/05 16:48:49 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/FdF.h"
-
-/*
-** Message d'erreur
-*/
-
-void		error(void)
-{
-	ft_putstr("error\n");
-	exit(1);
-}
+#include "../includes/fdf.h"
 
 /*
 ** Free notre liste chainée contenant notre fichier

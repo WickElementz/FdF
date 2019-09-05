@@ -6,12 +6,12 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/13 14:48:03 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/09/02 18:34:03 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/09/05 17:27:26 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/FdF.h"
+#include "../includes/fdf.h"
 
 /*
 ** Fonction utilisée pour supprimer le premier nombre de chaque lignes
@@ -111,8 +111,8 @@ int		check_valid_file(t_lst *lst, t_env *env, int i, int nbr)
 
 t_env	*check(t_lst *lst, t_env *env)
 {
-	if (!(env->len_x = check_valid_file(lst, env, 101, 101)))
-		error();
+	if (!(env->len_x = check_valid_file(lst, env, 0, 0)))
+		err_invalid_file(lst, env);
 	env = index_number(lst, env, 0);
 	return (env);
 }

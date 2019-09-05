@@ -6,12 +6,12 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/17 15:06:36 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/09/02 18:34:01 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/09/05 15:53:07 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/FdF.h"
+#include "../includes/fdf.h"
 
 /*
 ** Bresenham pour la partie droite du tracé par rapport au point de départ

@@ -6,12 +6,12 @@
 /*   By: jominodi <jominodi@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/14 16:35:56 by jominodi     #+#   ##    ##    #+#       */
-/*   Updated: 2019/09/02 18:34:03 by jominodi    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/09/05 15:49:16 by jominodi    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/FdF.h"
+#include "../includes/fdf.h"
 
 /*
 ** Fichier servant à initialiser les listes chainées / structures qu'on utilise
@@ -53,9 +53,10 @@ t_env		*init_env(void)
 	env->len_y = 0;
 	env->move_x = 0;
 	env->move_y = 0;
-	env->swc = 1;
-	env->z = 0;
-	env->h = 0;
+	env->swc = 0;
+	env->swc_c = 1;
+	env->leg = 0;
+	env->h = 1;
 	env->size_x = 1800;
 	env->size_y = 1200;
 	INDEX = init_index();
